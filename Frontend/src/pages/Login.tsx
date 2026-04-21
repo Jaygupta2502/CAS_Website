@@ -1,15 +1,12 @@
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useApp } from '@/context/AppContext';
 import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Shield, GraduationCap, Building2, AlertCircle, Eye, EyeOff } from 'lucide-react';
-import { toast } from 'sonner';
 import API from "@/config/api";
 import { cn } from '@/lib/utils';
-import logo from '@/src/components/top.png';
+import { AlertCircle, Eye, EyeOff, GraduationCap, Shield } from 'lucide-react';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 type Tab = 'admin' | 'faculty';
 type Mode = 'login' | 'signup';
 
@@ -172,7 +169,7 @@ export default function Login() {
                 )}
                 <div className="space-y-1.5">
                   <Label htmlFor="email">Email</Label>
-                  <Input id="email" type="email" value={email} onChange={e => setEmail(e.target.value)} placeholder={tab === 'admin' ? 'admin@mituniversity.edu.in' : 'faculty@mituniversity.edu.in'} />
+                  <Input id="email" type="email" value={email} onChange={e => setEmail(e.target.value)} placeholder={tab === 'admin' ? '' : ''} />
                 </div>
                 <div className="space-y-1.5">
                   <Label htmlFor="password">Password</Label>
@@ -212,7 +209,6 @@ export default function Login() {
 
                 {mode === 'login' && (
                   <p className="text-[11px] text-center text-muted-foreground pt-1 leading-relaxed">
-                    Demo: <code className="bg-muted px-1.5 py-0.5 rounded">{tab === 'admin' ? 'admin@mituniversity.edu.in / admin123' : 'abcd.efgh@mituniversity.edu.in / faculty123'}</code>
                   </p>
                 )}
               </form>
